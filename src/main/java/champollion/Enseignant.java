@@ -1,9 +1,12 @@
 package champollion;
 
+import java.util.HashMap;
+
 public class Enseignant extends Personne {
 
     // TODO : rajouter les autres méthodes présentes dans le diagramme UML
-
+    private HashMap<UE, ServicePrevu> mesServices = new HashMap<>();
+    
     public Enseignant(String nom, String email) {
         super(nom, email);
     }
@@ -45,7 +48,9 @@ public class Enseignant extends Personne {
      */
     public void ajouteEnseignement(UE ue, int volumeCM, int volumeTD, int volumeTP) {
         // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        //throw new UnsupportedOperationException("Pas encore implémenté");
+        ServicePrevu nouveauService = new ServicePrevu(volumeCM, volumeTD, volumeTP);
+        mesServices.put(ue, nouveauService);
     }
 
 }
