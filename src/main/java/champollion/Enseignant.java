@@ -97,7 +97,7 @@ public class Enseignant extends Personne {
         return mesInterventions;
     }
 
-    public int heuresPlanifiées(){
+    public int heuresPlanifiees(){
         int heuresPlan = 0;
         for(int i=0; i < mesInterventions.size(); i++){
             if(mesInterventions.get(i).getAnnulee()){
