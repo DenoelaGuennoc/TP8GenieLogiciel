@@ -97,4 +97,27 @@ public class Enseignant extends Personne {
         return mesInterventions;
     }
 
+    public int heuresPlanifiées(){
+        int heuresPlan = 0;
+        for(int i=0; i < mesInterventions.size(); i++){
+            if(mesInterventions.get(i).getAnnulee()){
+                continue;
+            }
+            else{
+                heuresPlan += mesInterventions.get(i).getDuree();
+            }
+        }
+        return heuresPlan;
+    }
+    
+    public boolean enSousService(){
+        int serviceEnseignant = this.heuresPrevues();
+        if(serviceEnseignant < 192){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
 }
