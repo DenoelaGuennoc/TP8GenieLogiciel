@@ -1,6 +1,9 @@
 package champollion;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.function.BiConsumer;
 
 public class Enseignant extends Personne {
 
@@ -21,7 +24,14 @@ public class Enseignant extends Personne {
      */
     public int heuresPrevues() {
         // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        //throw new UnsupportedOperationException("Pas encore implémenté");
+        int heuresPrevues = 0;
+        Iterator<Map.Entry<UE, ServicePrevu>> iterator = mesServices.entrySet().iterator();
+        while (iterator.hasNext()){
+            Map.Entry entry = iterator.next();
+            heuresPrevues += heuresPrevuesPourUE((UE) entry.getKey());
+        }
+        return heuresPrevues;
     }
 
     /**
