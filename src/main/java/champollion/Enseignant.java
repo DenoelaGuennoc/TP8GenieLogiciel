@@ -4,11 +4,13 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.function.BiConsumer;
+import java.util.LinkedList;
 
 public class Enseignant extends Personne {
 
     // TODO : rajouter les autres méthodes présentes dans le diagramme UML
     private HashMap<UE, ServicePrevu> mesServices = new HashMap<>();
+    private LinkedList<Intervention> mesInterventions = new LinkedList<>();
     
     public Enseignant(String nom, String email) {
         super(nom, email);
@@ -74,7 +76,7 @@ public class Enseignant extends Personne {
     }
     
     public void ajouteIntervention(Intervention nouvelleIntervention){
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        mesInterventions.add(nouvelleIntervention);
     }
 
 }
