@@ -28,10 +28,8 @@ public class Enseignant extends Personne {
         // TODO: Implémenter cette méthode
         //throw new UnsupportedOperationException("Pas encore implémenté");
         int heuresPrevues = 0;
-        Iterator<Map.Entry<UE, ServicePrevu>> iterator = mesServices.entrySet().iterator();
-        while (iterator.hasNext()){
-            Map.Entry entry = iterator.next();
-            heuresPrevues += heuresPrevuesPourUE((UE) entry.getKey());
+        for (Map.Entry mapentry : mesServices.entrySet()){
+            heuresPrevues += heuresPrevuesPourUE((UE) mapentry.getKey());
         }
         return heuresPrevues;
     }
