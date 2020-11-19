@@ -5,12 +5,19 @@
  */
 package champollion;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 /**
  *
  * @author Denoëla
  */
 public class Intervention {
     
+    private Date debut = new Date();
     private int duree;
     private boolean annulee = false;
+    
+    public Intervention (Salle s, UE ue, Enseignant e, Date deb, int duree){
+        
+    }
 }
