@@ -35,9 +35,19 @@ public class Enseignant extends Personne {
      */
     public int heuresPrevuesPourUE(UE ue) {
         // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        //throw new UnsupportedOperationException("Pas encore implémenté");
+        int vCM = mesServices.get(ue).getVolumeCM();
+        int vTD = mesServices.get(ue).getVolumeTD();
+        int vTP = mesServices.get(ue).getVolumeTP();
+        float equUETD = calculEquivalentTD(vCM, vTD, vTP);
+        return (int)equUETD;
     }
 
+    public float calculEquivalentTD(int vCM, int vTD, int vTP){
+        float equivalentTD = vCM*(3/2) + vTD + vTP*(3/4);
+        return equivalentTD;
+    }
+    
     /**
      * Ajoute un enseignement au service prévu pour cet enseignant
      *
