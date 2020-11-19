@@ -71,8 +71,22 @@ public class Enseignant extends Personne {
     public void ajouteEnseignement(UE ue, int volumeCM, int volumeTD, int volumeTP) {
         // TODO: Implémenter cette méthode
         //throw new UnsupportedOperationException("Pas encore implémenté");
-        ServicePrevu nouveauService = new ServicePrevu(volumeCM, volumeTD, volumeTP);
-        mesServices.put(ue, nouveauService);
+        if(mesServices.containsKey(ue)){
+            int ancienVolumeCM = mesServices.get(ue).getVolumeCM();
+            int ancienVolumeTD = mesServices.get(ue).getVolumeTD();
+            int ancienVolumeTP = mesServices.get(ue).getVolumeTP();
+            
+            int nouveauVolumeCM = volumeCM + ancienVolumeCM;
+            int nouveauVolumeTD = volumeTD + ancienVolumeTD;
+            int nouveauVolumeTP = volumeTP + ancienVolumeTP;
+            
+            ServicePrevu nouveauService = new ServicePrevu(nouveauVolumeCM, nouveauVolumeTD, nouveauVolumeTP);
+            mesServices.replace(ue, nouveauService);
+        }
+        else {
+            ServicePrevu nouveauService = new ServicePrevu(volumeCM, volumeTD, volumeTP);
+            mesServices.put(ue, nouveauService);
+        }
     }
     
     public void ajouteIntervention(Intervention nouvelleIntervention){
