@@ -72,5 +72,9 @@ public class Enseignant extends Personne {
         ServicePrevu nouveauService = new ServicePrevu(volumeCM, volumeTD, volumeTP);
         mesServices.put(ue, nouveauService);
     }
+    
+    public void ajouteIntervention(Intervention nouvelleIntervention){
+        throw new UnsupportedOperationException("Pas encore implémenté");
+    }
 
 }
