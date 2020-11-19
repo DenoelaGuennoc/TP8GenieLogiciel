@@ -92,5 +92,9 @@ public class Enseignant extends Personne {
     public void ajouteIntervention(Intervention nouvelleIntervention){
         mesInterventions.add(nouvelleIntervention);
     }
+    
+    public LinkedList getInterventions(){
+        return mesInterventions;
+    }
 
 }
