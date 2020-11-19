@@ -74,6 +74,8 @@ public class ChampollionJUnitTest {
             
             //ajout d'un service pour faire passer le nombre d'heures de l'enseignant en équivalents TD à plus de 192
             untel.ajouteEnseignement(java, 70, 100, 60);
+            assertEquals(278, untel.heuresPrevues(),
+                    "L'enseignant doit avoir 278 heures prévues");
             assertFalse(untel.enSousService(),
                     "L'enseignant ne doit pas être en sous-service");
         }

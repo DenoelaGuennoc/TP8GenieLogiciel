@@ -54,7 +54,7 @@ public class Enseignant extends Personne {
     }
 
     public float calculEquivalentTD(int vCM, int vTD, int vTP){
-        float equivalentTD = vCM*(3/2) + vTD + vTP*(3/4);
+        float equivalentTD = vCM*1.5f + vTD + vTP*0.75f;
         return equivalentTD;
     }
     
