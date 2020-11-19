@@ -59,7 +59,7 @@ public class Intervention {
     }
     
     public void annulerIntervention() throws Exception{
-        if(!annulee){
+        if(annulee){
             throw new Exception("Cette intervention est déjà annulée");
         }
         else {

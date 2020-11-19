@@ -8,6 +8,7 @@ public class ChampollionJUnitTest {
 	Enseignant untel;
 	UE uml, java;
         Intervention coursA;
+        Intervention coursB;
         Salle b102;
         Date dateA;
 		
@@ -19,6 +20,7 @@ public class ChampollionJUnitTest {
                 b102 = new Salle("B102", 40);
                 dateA = new Date(2020, 11, 19);
                 coursA = new Intervention(b102,uml,untel,dateA,2);
+                coursB = new Intervention(b102,java,untel,dateA,2);
 	}
 	
 
@@ -50,7 +52,29 @@ public class ChampollionJUnitTest {
             untel.ajouteIntervention(coursA);
             
             assertEquals(coursA, untel.getInterventions().get(0),
-                    "L'enseignant dans avoir une intervention coursA");
+                    "L'enseignant doit avoir une intervention coursA");
         }
 	
+        @Test
+        public void testHeuresPlanifiees() throws Exception{
+            untel.ajouteIntervention(coursA);
+            untel.ajouteIntervention(coursB);
+            coursB.annulerIntervention();
+            
+            assertEquals(2, untel.heuresPlanifiees(),
+                    "L'enseignant doit avoir 2h planifiées");
+        }
+        
+        @Test
+        public void testSousService(){
+            //ajout d'un service < 192h équivalentTD
+            untel.ajouteEnseignement(uml, 12, 4, 8);
+            assertTrue(untel.enSousService(),
+                    "L'enseignant doit être en sous-service");
+            
+            //ajout d'un service pour faire passer le nombre d'heures de l'enseignant en équivalents TD à plus de 192
+            untel.ajouteEnseignement(java, 70, 100, 60);
+            assertFalse(untel.enSousService(),
+                    "L'enseignant ne doit pas être en sous-service");
+        }
 }
