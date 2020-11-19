@@ -16,8 +16,16 @@ public class Intervention {
     private Date debut = new Date();
     private int duree;
     private boolean annulee = false;
+    private Salle salleInter;
+    private UE ueInter;
+    private Enseignant enseignantInter;
+    
     
     public Intervention (Salle s, UE ue, Enseignant e, Date deb, int duree){
-        
+        this.salleInter = s;
+        this.ueInter = ue;
+        this.enseignantInter = e;
+        this.debut = deb;
+        this.duree = duree;
     }
 }
